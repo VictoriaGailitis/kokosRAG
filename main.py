@@ -13,10 +13,6 @@ from langchain.chat_models import GigaChat
 
 load_dotenv()
 
-__import__('pysqlite3')
-import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
-
 llm = GigaChat(credentials=os.getenv("API"), scope=os.getenv("SCOPE"), verify_ssl_certs=False)
 
 loader = UnstructuredExcelLoader("./kokos.xlsx", mode="elements")
